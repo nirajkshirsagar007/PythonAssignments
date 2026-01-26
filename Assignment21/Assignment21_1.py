@@ -5,6 +5,8 @@
 
 import threading
 
+lobj = threading.Lock()
+
 def IsPrime(No):
     if No <= 1:
         return False
@@ -14,22 +16,24 @@ def IsPrime(No):
     return True
 
 def DisplayPrime(Data):
-    print("---- Prime Thread ----")
-    print("Thread ID:", threading.get_ident())
-    print("Thread Name:", threading.current_thread().name)
-    for no in Data:
-        if IsPrime(no):
-            print(no, end=" ")
-    print("\n")
+    with lobj:
+        print("---- Prime Thread ----")
+        print("Thread ID:", threading.get_ident())
+        print("Thread Name:", threading.current_thread().name)
+        for no in Data:
+            if IsPrime(no):
+                print(no, end=" ")
+        print("\n")
 
 def DisplayNonPrime(Data):
-    print("---- NonPrime Thread ----")
-    print("Thread ID:", threading.get_ident())
-    print("Thread Name:", threading.current_thread().name)
-    for no in Data:
-        if not IsPrime(no):
-            print(no, end=" ")
-    print("\n")
+    with lobj:      
+        print("---- NonPrime Thread ----")
+        print("Thread ID:", threading.get_ident())
+        print("Thread Name:", threading.current_thread().name)
+        for no in Data:
+            if not IsPrime(no):
+                print(no, end=" ")
+        print("\n")
 
 def main():
     Data = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
