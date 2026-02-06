@@ -1,0 +1,14 @@
+
+------------------------------------
+Log created at : Fri Feb  6 16:17:49 2026
+
+Duplicate files:
+Demo\A.txt
+Demo\Demo.txt
+
+Duplicate files:
+Demo\B.txt
+Demo\C.txt
+
+Total files scanned : 4
+Total duplicate files : 4

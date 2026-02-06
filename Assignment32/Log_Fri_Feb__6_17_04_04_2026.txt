@@ -1,0 +1,7 @@
+
+------------------------------------
+Log created at : Fri Feb  6 17:04:04 2026
+Deleted File : Demo\C.txt
+Total Deleted Files: 1
+
+Execution Time : 0.00 seconds
